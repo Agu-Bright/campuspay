@@ -57,16 +57,16 @@ app.use("/api/v1", payment);
 app.use(errorMiddleware);
 
 //serve static assets
-// if (
-//   process.env.NODE_ENV === "PRODUCTION" ||
-//   process.env.NODE_ENV == "staging"
-// ) {
-//   app.use(express.static("client/build"));
+if (
+  process.env.NODE_ENV === "PRODUCTION" ||
+  process.env.NODE_ENV == "staging"
+) {
+  app.use(express.static("client/build"));
 
-//   app.get("*", (req, res) => {
-//     res.sendFile(path.join(__dirname + "/client/build/index.html"));
-//   });
-// }
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname + "/client/build/index.html"));
+  });
+}
 //starting the server
 const start = async () => {
   try {
